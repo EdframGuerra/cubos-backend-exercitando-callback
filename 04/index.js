@@ -1,7 +1,7 @@
 // Desenvolva um programa que simula um timer simples.
 
 // Logo após iniciar, o seu programa deverá imprimir na tela uma mensagem de início do timer:
-//  "Timer iniciado, disparando alarme em X segundos!". 
+//  "Timer iniciado, disparando alarme em X segundos!".
 // Note que X corresponde ao tempo em que o seu programa irá aguardar para enfim despertar.
 
 // O seu programa deverá aguardar o tempo em segundos especificado na variável tempoParaAlarmarEmSegundos,
@@ -12,21 +12,59 @@
 
 let tempoParaAlarmarEmSegundos = 10;
 let tempoAlarmandoEmSegundos = 5;
+let contador = 0;
+const alarme = (tempoProgramado, disparosSonoros) => {
 
-// for (let i = 0; i <= 10; i++) {
-//     let resultado = numero * i;
-//     callback(`${numero}x${i} = ${resultado}`);
+    console.log(`Timer iniciado, disparando alarme em ${tempoParaAlarmarEmSegundos} segundos!`);
+
+
+    const bip = setInterval(() => {
+        contador++;
+        if (contador >= tempoProgramado && contador < tempoProgramado + disparosSonoros) {
+            console.log("Beep, Beep!")
+        } else if (contador == disparosSonoros + tempoProgramado) {
+            clearInterval(bip);
+        }
+
+    }, 1000);
+}
+alarme(tempoParaAlarmarEmSegundos, tempoAlarmandoEmSegundos);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// let tempoParaAlarmarEmSegundos = 10;
+// let tempoAlarmandoEmSegundos = 5;
+
+
+// const alarme = (tempototal, intervaloDeAlarme) => {
+
+//     console.log(`Timer iniciado, disparando alarme em ${tempototal} segundos!`)
+
+//     let contador = 0
+
+//     let index = setInterval(() => {
+//         contador++
+//         if (contador >= tempototal && contador < intervaloDeAlarme + tempototal) {
+//             console.log("Beep beep!")
+//         }
+//         else if (contador == tempototal + intervaloDeAlarme) {
+//             clearInterval(index)
+//         }
+//     }, 1000);
+
+
 // }
 
-
-setTimeout(() => {
-    console.log(`Timer iniciado, disparando alarme em ${tempoParaAlarmarEmSegundos} segundos!`)
-}, 0)
-const alarme = setInterval(() => {
-    for (let i = 1; i <= tempoAlarmandoEmSegundos; i++) {
-        console.log("Beep beep!")
-        clearInterval(alarme)
-    }
-}, tempoParaAlarmarEmSegundos * 1000);
-
-
+// alarme(tempoParaAlarmarEmSegundos, tempoAlarmandoEmSegundos);
