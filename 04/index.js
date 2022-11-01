@@ -6,21 +6,47 @@ const alarme = (tempoProgramado, disparosSonoros) => {
     console.log(`Timer iniciado, disparando alarme em ${tempoParaAlarmarEmSegundos} segundos!`);
 
 
-    const bip = setInterval(() => {
-        contador++;
-        if (contador >= tempoProgramado && contador < tempoProgramado + disparosSonoros) {
-            console.log("Beep, Beep!")
-        } else if (contador == disparosSonoros + tempoProgramado) {
-            clearInterval(bip);
-        }
 
-    }, 1000);
+    setTimeout(() => {
+        const bip = setInterval(() => {
+            contador++;
+            console.log("Beep, Beep!")
+            if (contador == disparosSonoros) {
+                clearInterval(bip);
+
+            }
+
+        }, 1000);
+
+
+    }, tempoProgramado * 1000);
+
+
 }
 alarme(tempoParaAlarmarEmSegundos, tempoAlarmandoEmSegundos);
 
 
 
 
+// let tempoParaAlarmarEmSegundos = 10;
+// let tempoAlarmandoEmSegundos = 5;
+// let contador = 0;
+// const alarme = (tempoProgramado, disparosSonoros) => {
+
+//     console.log(`Timer iniciado, disparando alarme em ${tempoParaAlarmarEmSegundos} segundos!`);
+
+
+//     const bip = setInterval(() => {
+//         contador++;
+//         if (contador >= tempoProgramado && contador < tempoProgramado + disparosSonoros) {
+//             console.log("Beep, Beep!")
+//         } else if (contador == disparosSonoros + tempoProgramado) {
+//             clearInterval(bip);
+//         }
+
+//     }, 1000);
+// }
+// alarme(tempoParaAlarmarEmSegundos, tempoAlarmandoEmSegundos);
 
 
 
