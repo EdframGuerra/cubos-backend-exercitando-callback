@@ -1,8 +1,6 @@
 const arrayNumeros = [1, 5, 2];
 
-
 const tabuada = (arrayNumeros, callback) => {
-
 
     for (let item of arrayNumeros) {
         for (let i = 0; i <= 10; i++) {
